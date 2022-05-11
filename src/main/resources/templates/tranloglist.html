@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>프레임워크 거래로그</title>
+</head>
+<body>
+
+	<h1>프레임워크</h1>
+	<h2>거래 로그</h2>
+	
+	<table th:inline="text" border="1">
+		<tr>
+			<th>로그ID</th>
+			<th>GUID</th>
+			<th>거래진행번호</th>
+			<th>거래요청시간</th>
+			<th>거래응답시간</th>
+			<th>로깅시간</th>
+			<th>데이터</th>
+			<th>요청구분</th>
+			<th>응답코드</th>
+		</tr>
+	    <tr th:each="tranlog:${tranlog}">
+            <td th:text="${tranlog.LOGID}"></td>
+            <td th:text="${tranlog.GUID}"></td>
+            <td th:text="${tranlog.PRGNO}"></td>
+            <td th:text="${tranlog.TRXDATETIME}"></td>
+            <td th:text="${tranlog.RESDATETIME}"></td>
+            <td th:text="${tranlog.LOGTIME}"></td>
+            <td th:text="${tranlog.BIZDATA}"></td>
+            <td th:text="${tranlog.REQUESTTYPE}"></td>
+            <td th:text="${tranlog.RESPONSETYPE}"></td>
+	    </tr>
+	</table>
+	    <p>
+        <a href="/">HOME</a>
+        </p>
+</body>
+</html>
